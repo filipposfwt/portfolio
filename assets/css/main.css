@@ -237,9 +237,19 @@ h1, h2, h3 {
 @media (min-width: 900px) {
   .hero { min-height: 560px; }
 }
-/* On narrow screens he'd cover the title — tuck him away */
+/* On narrow screens there's no room beside the text, so drop him below it,
+   centered, in normal flow (no overlap with the title). */
 @media (max-width: 899px) {
-  .hero__mascot { display: none; }
+  .hero__mascot {
+    position: static;
+    display: block;
+    height: auto;
+    width: auto;
+    max-height: 48vh;
+    max-width: 72%;
+    margin: 1.75rem auto 0;
+    filter: drop-shadow(7px 7px 0 var(--accent));
+  }
 }
 
 /* ============================================================
