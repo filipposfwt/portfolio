@@ -5,6 +5,11 @@
     <div class="hero__intro">
       {{ .Content }}
     </div>
+    {{ with resources.Get "images/mascot.png" }}
+      {{ $m := .Resize "780x webp q90" }}
+      <img class="hero__mascot" src="{{ $m.RelPermalink }}" alt="obal satyr character" aria-hidden="true"
+           width="{{ $m.Width }}" height="{{ $m.Height }}" loading="eager">
+    {{ end }}
   </section>
 
   <section class="section">

@@ -220,6 +220,27 @@ h1, h2, h3 {
   color: var(--fg);
   margin: 0;
 }
+/* Keep the text above the mascot */
+.hero__role, .hero__name, .hero__intro { position: relative; z-index: 1; }
+
+/* The satyr hanging out to the right of the hero text */
+.hero__mascot {
+  position: absolute;
+  right: -1.5rem;
+  bottom: 0;
+  height: 96%;
+  width: auto;
+  z-index: 0;
+  pointer-events: none;
+  filter: drop-shadow(10px 10px 0 var(--accent));
+}
+@media (min-width: 900px) {
+  .hero { min-height: 560px; }
+}
+/* On narrow screens he'd cover the title — tuck him away */
+@media (max-width: 899px) {
+  .hero__mascot { display: none; }
+}
 
 /* ============================================================
    Section headings
