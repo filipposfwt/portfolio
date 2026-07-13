@@ -1,6 +1,6 @@
 {{ define "main" }}
   <section class="section">
-    <div class="section__head"><h2>{{ .Title }}</h2></div>
+    <div class="section__head"><h2 class="star">{{ .Title }}</h2></div>
     {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
     <ul class="lead-list">
       {{ range .Pages }}

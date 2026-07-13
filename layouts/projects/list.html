@@ -1,7 +1,7 @@
 {{ define "main" }}
   <section class="section">
     <div class="section__head">
-      <h2>{{ .Title }}</h2>
+      <h2 class="star">{{ .Title }}</h2>
     </div>
 
     {{ with .Content }}<div class="prose" style="margin-bottom: var(--gap)">{{ . }}</div>{{ end }}
