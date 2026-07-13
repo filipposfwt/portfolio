@@ -1,0 +1,55 @@
+# --- Site basics ---------------------------------------------------------
+# NOTE: baseURL uses the GitHub Pages project-site path for now.
+# When you move to a custom domain, change this to "https://yourdomain.com/"
+# and put the domain in static/CNAME. Nothing else needs to change.
+baseURL = "https://filipposfwt.github.io/portfolio/"
+locale = "en-us"
+title = "obal"
+
+# Pretty URLs and good defaults
+enableRobotsTXT = true
+summaryLength = 20
+
+# --- Params (available in templates as .Site.Params) ---------------------
+[params]
+  # Displayed name / brand. Artist name out front; real name lives in About.
+  author = "obal"
+  realName = "Vangelis Balis"
+  role = "Graphic artist — prints, apparel & ceramics"
+  description = "obal (Vangelis Balis) — graphic artist making prints, t-shirts and ceramics, ruled by satyrs."
+  location = "Athens, Greece"
+  email = ""   # add a contact email to show it in the footer & contact page
+
+  # Social links (leave blank to hide).
+  [params.social]
+    instagram = "obal___"
+    behance = ""
+    dribbble = ""
+    linkedin = ""
+
+# --- Navigation menu -----------------------------------------------------
+[menus]
+  [[menus.main]]
+    name = "Work"
+    pageRef = "/projects"
+    weight = 10
+  [[menus.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 20
+  [[menus.main]]
+    name = "Contact"
+    pageRef = "/contact"
+    weight = 30
+
+# --- Markup / rendering --------------------------------------------------
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true          # allow raw HTML in markdown when needed
+  [markup.highlight]
+    noClasses = false
+
+# --- Image processing ----------------------------------------------------
+[imaging]
+  quality = 82
+  resampleFilter = "Lanczos"

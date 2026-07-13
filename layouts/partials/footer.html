@@ -1,0 +1,15 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-name">{{ .Site.Params.author }}</p>
+
+    <ul class="social">
+      {{ with .Site.Params.social.instagram }}<li><a href="https://instagram.com/{{ . }}" rel="me noopener" target="_blank">Instagram</a></li>{{ end }}
+      {{ with .Site.Params.social.behance }}<li><a href="https://behance.net/{{ . }}" rel="me noopener" target="_blank">Behance</a></li>{{ end }}
+      {{ with .Site.Params.social.dribbble }}<li><a href="https://dribbble.com/{{ . }}" rel="me noopener" target="_blank">Dribbble</a></li>{{ end }}
+      {{ with .Site.Params.social.linkedin }}<li><a href="https://linkedin.com/in/{{ . }}" rel="me noopener" target="_blank">LinkedIn</a></li>{{ end }}
+      {{ with .Site.Params.email }}<li><a href="mailto:{{ . }}">Email</a></li>{{ end }}
+    </ul>
+
+    <p class="footer-meta">© {{ now.Year }} {{ .Site.Params.author }}. Built with Hugo.</p>
+  </div>
+</footer>

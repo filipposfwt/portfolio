@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ "/" | relLangURL }}">
+      {{ with resources.Get "images/logo.jpg" }}
+        {{ $logo := .Resize "104x webp q90" }}
+        <img class="brand-logo" src="{{ $logo.RelPermalink }}" alt="obal logo"
+             width="52" height="{{ math.Round (mul 52 (div (float $logo.Height) $logo.Width)) }}">
+      {{ end }}
+      <span>{{ .Site.Params.author }}</span>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <ul>
+        {{ range .Site.Menus.main }}
+          <li>
+            <a href="{{ .PageRef | relLangURL }}"
+               {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>
+              {{ .Name }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+      <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+    </button>
+  </div>
+</header>

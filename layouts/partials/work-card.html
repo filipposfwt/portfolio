@@ -1,0 +1,23 @@
+{{/* Renders a project thumbnail card. Expects a Page as context. */}}
+{{ $cover := "" }}
+{{ with .Resources.GetMatch "{cover,thumbnail}.*" }}
+  {{ $cover = (.Fill "600x450 Center") }}
+{{ else }}
+  {{ with .Params.cover }}{{ $cover = resources.Get . }}{{ end }}
+{{ end }}
+
+<a class="work-card" href="{{ .RelPermalink }}">
+  <div class="work-card__media">
+    {{ if $cover }}
+      <img src="{{ $cover.RelPermalink }}" alt="{{ .Title }}" loading="lazy"
+           width="{{ $cover.Width }}" height="{{ $cover.Height }}">
+    {{ else }}
+      <div class="work-card__placeholder">{{ substr .Title 0 1 }}</div>
+    {{ end }}
+  </div>
+  <h3 class="work-card__title">{{ .Title }}</h3>
+  <p class="work-card__meta">
+    {{ with .Params.category }}{{ . }}{{ end }}
+    {{ with .Params.year }} · {{ . }}{{ end }}
+  </p>
+</a>
