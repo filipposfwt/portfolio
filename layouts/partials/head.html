@@ -27,14 +27,5 @@
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 
 {{/* Compile SCSS-free CSS through Hugo Pipes: minify + fingerprint for caching */}}
-{{ $css := resources.Get "css/main.css" | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
-
-{{/* Prevent theme flash: set data-theme before paint */}}
-<script>
-  (function () {
-    var t = localStorage.getItem('theme');
-    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', t);
-  })();
-</script>
+{{ $css := resources.Get "css/main.css" | minify }}
+<style>{{ $css.Content | safeCSS }}</style>

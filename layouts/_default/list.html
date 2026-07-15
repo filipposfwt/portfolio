@@ -1,16 +1,34 @@
 {{ define "main" }}
   <section class="section">
-    <div class="section__head">
-      <h2 class="star">{{ .Title }}</h2>
-    </div>
-
-    {{ with .Content }}<div class="prose" style="margin-bottom: var(--gap)">{{ . }}</div>{{ end }}
-
     <div class="work-grid">
-      {{ range .Pages.ByWeight }}
-        {{ partial "work-card.html" . }}
+      {{ if .Pages }}
+        {{/* Named-piece mode (e.g. Mixed Media): one static tile per piece */}}
+        {{ range .Pages.ByWeight }}
+          {{ $piece := . }}
+          {{ with (.Resources.ByType "image") }}
+            {{ $thumb := (index . 0).Fill "700x900 Center webp q88" }}
+            <figure class="tile tile--fill">
+              <span class="tile__media">
+                <img src="{{ $thumb.RelPermalink }}" alt="{{ $piece.Title }}" loading="lazy"
+                     width="{{ $thumb.Width }}" height="{{ $thumb.Height }}">
+              </span>
+              <figcaption class="tile__title">{{ $piece.Title }}</figcaption>
+            </figure>
+          {{ end }}
+        {{ end }}
       {{ else }}
-        <p class="empty-note">No pieces here yet — coming soon.</p>
+        {{/* Flat gallery mode (e.g. Illustrations): a static wall of images */}}
+        {{ range .Resources.ByType "image" }}
+          {{ $thumb := .Fill "700x900 Center webp q88" }}
+          <figure class="tile tile--fill">
+            <span class="tile__media">
+              <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" loading="lazy"
+                   width="{{ $thumb.Width }}" height="{{ $thumb.Height }}">
+            </span>
+          </figure>
+        {{ else }}
+          <p class="empty-note">No pieces here yet — coming soon.</p>
+        {{ end }}
       {{ end }}
     </div>
   </section>

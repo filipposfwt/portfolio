@@ -43,14 +43,14 @@ summaryLength = 20
     pageRef = "/mixed-media"
     weight = 30
 
-  # Secondary links (smaller, bottom of the overlay)
+  # Secondary links (smaller, under the main items in the overlay)
   [[menus.secondary]]
-    name = "About"
-    pageRef = "/about"
+    name = "Instagram"
+    url = "https://www.instagram.com/obal___/"
     weight = 10
   [[menus.secondary]]
-    name = "Contact"
-    pageRef = "/contact"
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/evangelos-balis-974282324/"
     weight = 20
 
 # --- Markup / rendering --------------------------------------------------

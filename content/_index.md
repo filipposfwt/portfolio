@@ -2,5 +2,6 @@
 title: "Home"
 ---
 
-Graphic artist working across prints, t-shirts and ceramics. My world is
-ruled by satyrs — horned, grinning, and always a little up to no good.
+OBAL is a multidisciplinary artist living in Athens. Using his cheeky, playful
+Satyr across various mediums, OBAL expresses the ups, downs, and straight up
+weird that comes with living in a chaotic, concrete jungle.
