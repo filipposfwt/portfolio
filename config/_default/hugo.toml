@@ -27,20 +27,31 @@ summaryLength = 20
     dribbble = ""
     linkedin = ""
 
-# --- Navigation menu -----------------------------------------------------
+# --- Navigation ----------------------------------------------------------
+# Primary links (big, in the hamburger overlay)
 [menus]
   [[menus.main]]
-    name = "Work"
-    pageRef = "/projects"
+    name = "Ceramics"
+    pageRef = "/ceramics"
     weight = 10
   [[menus.main]]
-    name = "About"
-    pageRef = "/about"
+    name = "Illustrations"
+    pageRef = "/illustrations"
     weight = 20
   [[menus.main]]
+    name = "Mixed Media"
+    pageRef = "/mixed-media"
+    weight = 30
+
+  # Secondary links (smaller, bottom of the overlay)
+  [[menus.secondary]]
+    name = "About"
+    pageRef = "/about"
+    weight = 10
+  [[menus.secondary]]
     name = "Contact"
     pageRef = "/contact"
-    weight = 30
+    weight = 20
 
 # --- Markup / rendering --------------------------------------------------
 [markup]

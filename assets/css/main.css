@@ -464,3 +464,156 @@ h1, h2, h3 {
 
 /* 404 */
 .hero__name + .hero__intro a { color: var(--accent); }
+
+/* ============================================================
+   Header tools + hamburger
+   ============================================================ */
+.header-tools {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.menu-toggle {
+  width: 48px; height: 48px;
+  border: var(--border) solid var(--line);
+  border-radius: 50%;
+  background: var(--card-bg);
+  color: var(--fg);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  position: relative;
+  transition: transform 0.15s ease;
+}
+.menu-toggle:hover { color: var(--accent); transform: rotate(-8deg) scale(1.05); }
+.menu-toggle__bars,
+.menu-toggle__bars::before,
+.menu-toggle__bars::after {
+  content: "";
+  display: block;
+  width: 20px; height: 2.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.menu-toggle__bars { position: relative; }
+.menu-toggle__bars::before { position: absolute; left: 0; top: -6px; }
+.menu-toggle__bars::after  { position: absolute; left: 0; top: 6px; }
+/* Morph to an X when open */
+.menu-open .menu-toggle__bars { background: transparent; }
+.menu-open .menu-toggle__bars::before { transform: translateY(6px) rotate(45deg); }
+.menu-open .menu-toggle__bars::after  { transform: translateY(-6px) rotate(-45deg); }
+
+/* When the menu is open, lift the header above the overlay and make it clear */
+body.menu-open { overflow: hidden; }
+body.menu-open .site-header { z-index: 40; background: transparent; border-bottom: none; }
+
+/* ============================================================
+   Full-screen menu overlay
+   ============================================================ */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+  padding: 6rem var(--space);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.menu-open .menu-overlay { opacity: 1; visibility: visible; }
+
+.menu-overlay__main {
+  list-style: none;
+  margin: 0; padding: 0;
+  text-align: center;
+}
+.menu-overlay__main li { margin: 0.1em 0; }
+.menu-overlay__main a {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--step-3);
+  line-height: 1.05;
+  color: var(--fg);
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+.menu-overlay__main a:hover { color: var(--accent); transform: rotate(-2deg); }
+
+.menu-overlay__secondary {
+  list-style: none;
+  display: flex;
+  gap: 1.4rem;
+  margin: 0; padding: 0;
+}
+.menu-overlay__secondary a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border-bottom: var(--border) solid var(--accent);
+}
+.menu-overlay__secondary a:hover { color: var(--accent); }
+
+/* ============================================================
+   Home splash (all white, centered spinning logo)
+   ============================================================ */
+body.is-home {
+  --bg: #ffffff;
+  --fg: #141414;
+  --muted: #6b5f4d;
+  --line: #141414;
+  --accent: #e11d10;
+  --card-bg: #ffffff;
+  --shadow: #141414;
+}
+.is-home .site-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: transparent;
+  border-bottom: none;
+  z-index: 20;
+}
+.is-home .brand,
+.is-home .theme-toggle { display: none; }
+.is-home .site-footer { display: none; }
+
+.splash {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-block: 6rem;
+}
+.splash__logo {
+  width: min(60vw, 340px);
+  height: auto;
+  mix-blend-mode: multiply;
+  animation: brand-spin 14s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .splash__logo { animation: none; } }
+.splash__intro {
+  max-width: 42ch;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-1);
+  color: var(--fg);
+}
+.splash__intro p { margin: 0; }
+
+.empty-note {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--muted);
+}

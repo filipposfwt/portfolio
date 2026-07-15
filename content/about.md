@@ -1,5 +1,6 @@
 ---
 title: "About"
+layout: "prose"
 ---
 
 **obal** is the artist name of **Vangelis Balis**, a graphic artist based in

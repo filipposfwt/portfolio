@@ -1,11 +1,17 @@
 {{ define "main" }}
   <section class="section">
-    <div class="section__head"><h2 class="star">{{ .Title }}</h2></div>
-    {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
-    <ul class="lead-list">
-      {{ range .Pages }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    <div class="section__head">
+      <h2 class="star">{{ .Title }}</h2>
+    </div>
+
+    {{ with .Content }}<div class="prose" style="margin-bottom: var(--gap)">{{ . }}</div>{{ end }}
+
+    <div class="work-grid">
+      {{ range .Pages.ByWeight }}
+        {{ partial "work-card.html" . }}
+      {{ else }}
+        <p class="empty-note">No pieces here yet — coming soon.</p>
       {{ end }}
-    </ul>
+    </div>
   </section>
 {{ end }}

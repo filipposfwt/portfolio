@@ -1,31 +1,12 @@
 {{ define "main" }}
-  <section class="hero">
-    <p class="hero__role">{{ .Site.Params.role }}</p>
-    <h1 class="hero__name">{{ .Site.Params.author }}</h1>
-    <div class="hero__intro">
-      {{ .Content }}
-    </div>
-    {{ with resources.Get "images/mascot.png" }}
-      {{ $m := .Resize "780x webp q90" }}
-      <img class="hero__mascot" src="{{ $m.RelPermalink }}" alt="obal satyr character" aria-hidden="true"
-           width="{{ $m.Width }}" height="{{ $m.Height }}" loading="eager">
+  <section class="splash">
+    {{ with resources.Get "images/logo.jpg" }}
+      {{ $l := .Resize "760x webp q95" }}
+      <img class="splash__logo" src="{{ $l.RelPermalink }}" alt="obal"
+           width="{{ $l.Width }}" height="{{ $l.Height }}" loading="eager">
     {{ end }}
-  </section>
-
-  <section class="section">
-    <div class="section__head">
-      <h2 class="star">Selected Work</h2>
-      <a href="{{ "/projects" | relLangURL }}">View all →</a>
-    </div>
-
-    {{ $projects := where site.RegularPages "Section" "projects" }}
-    {{ $featured := first 6 $projects }}
-    <div class="work-grid">
-      {{ range $featured }}
-        {{ partial "work-card.html" . }}
-      {{ else }}
-        <p>No projects yet — add your first one in <code>content/projects/</code>.</p>
-      {{ end }}
+    <div class="splash__intro">
+      {{ .Content }}
     </div>
   </section>
 {{ end }}

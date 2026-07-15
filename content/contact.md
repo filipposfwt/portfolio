@@ -1,5 +1,6 @@
 ---
 title: "Contact"
+layout: "prose"
 ---
 
 For prints, commissions, and collaborations, the fastest way to reach obal is
