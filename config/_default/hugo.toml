@@ -1,8 +1,7 @@
 # --- Site basics ---------------------------------------------------------
-# NOTE: baseURL uses the GitHub Pages project-site path for now.
-# When you move to a custom domain, change this to "https://yourdomain.com/"
-# and put the domain in static/CNAME. Nothing else needs to change.
-baseURL = "https://filipposfwt.github.io/portfolio/"
+# Custom domain (obal.me). The domain also lives in static/CNAME so GitHub
+# Pages keeps it across deploys.
+baseURL = "https://obal.me/"
 locale = "en-us"
 title = "obal"
 
