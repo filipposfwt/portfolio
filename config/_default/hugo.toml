@@ -50,7 +50,7 @@ summaryLength = 20
     weight = 10
   [[menus.secondary]]
     name = "LinkedIn"
-    url = "https://www.linkedin.com/in/evangelos-balis-974282324/"
+    url = "https://www.linkedin.com/in/vaggelis-balis-974282324/"
     weight = 20
 
 # --- Markup / rendering --------------------------------------------------

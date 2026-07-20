@@ -714,10 +714,7 @@ body.lightbox-open .lightbox { opacity: 1; visibility: visible; }
   max-width: 100%;
 }
 .lightbox__frame {
-  background: var(--lb-bg, #fff);
-  border: var(--border) solid #fff;
-  border-radius: 10px;
-  padding: clamp(1rem, 3vw, 2.5rem);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;

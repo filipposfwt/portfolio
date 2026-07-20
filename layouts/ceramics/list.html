@@ -3,21 +3,18 @@
     <div class="work-grid">
       {{ range .Pages.ByWeight }}
         {{ $imgs := .Resources.ByType "image" }}
-        {{ $bg := .Params.bg | default "#ffffff" }}
         {{ if $imgs }}
-          {{ $thumb := (index $imgs 0).Fit "800x600 webp q90" }}
+          {{ $thumb := (index $imgs 0).Fill "700x900 Center webp q88" }}
           {{ $urls := slice }}
           {{ range $imgs }}
-            {{ $full := .Fit "1500x1500 webp q90" }}
-            {{ $urls = $urls | append $full.RelPermalink }}
+            {{ $urls = $urls | append (.Fit "1500x1500 webp q90").RelPermalink }}
           {{ end }}
-          <figure class="tile">
+          <figure class="tile tile--fill">
             <button class="tile__btn" type="button"
                     data-gallery="{{ $urls | jsonify }}"
                     data-title="{{ .Title }}"
-                    data-bg="{{ $bg }}"
                     aria-label="Open {{ .Title }} slideshow ({{ len $imgs }} photos)">
-              <span class="tile__media" style="background: {{ $bg }}">
+              <span class="tile__media">
                 <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" loading="lazy"
                      width="{{ $thumb.Width }}" height="{{ $thumb.Height }}">
                 <span class="tile__count">{{ len $imgs }} photos</span>
