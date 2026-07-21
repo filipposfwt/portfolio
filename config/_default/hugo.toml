@@ -14,8 +14,8 @@ summaryLength = 20
   # Displayed name / brand. Artist name out front; real name lives in About.
   author = "obal"
   realName = "Vangelis Balis"
-  role = "Graphic artist — prints, apparel & ceramics"
-  description = "obal (Vangelis Balis) — graphic artist making prints, t-shirts and ceramics, ruled by satyrs."
+  role = "Multidisciplinary artist — ceramics, illustrations & mixed media"
+  description = "obal (Vangelis Balis) — multidisciplinary artist working across ceramics, illustrations & mixed media."
   location = "Athens, Greece"
   email = ""   # add a contact email to show it in the footer & contact page
 
